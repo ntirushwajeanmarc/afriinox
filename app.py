@@ -16,9 +16,25 @@ def about():
 @app.route('/services')
 def services():
   return render_template('ourservices.html')
+
+
 @app.route('/projects')
 def projects():
   return render_template('projects.html')
+
+
+@app.route('/getinvolved', methods=['POST', 'GET'])
+def book():
+  bookings = []
+  if request.method == 'POST':
+    emailx = request.form.get('email')
+    name = request.form.get('name')
+    message = request.form.get('message')
+    booking = {'email': emailx, 'name': name, 'message': message}
+    bookings.append(booking)
+    print(bookings)
+  return render_template('form.html')
+
 
 if __name__ == '__main__':
   app.run(debug=True, host='0.0.0.0')

@@ -5,6 +5,7 @@ app = Flask(__name__)
 app.secret_key = 'fc62fd5d-8247-4c1d-9496-f75a929001f9'
 bookings = []
 
+
 @app.route('/')
 def index():
   return render_template('index.html')
@@ -36,6 +37,11 @@ def book():
     bookings.append(booking)
     print(bookings)
   return render_template('form.html')
+
+
+@app.route('/invented')
+def invented():
+  return render_template('invented.html')
 
 
 if __name__ == '__main__':

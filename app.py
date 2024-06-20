@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
+app.secret_key = 'fc62fd5d-8247-4c1d-9496-f75a929001f9'
+bookings = []
 
 @app.route('/')
 def index():
@@ -25,7 +27,7 @@ def projects():
 
 @app.route('/getinvolved', methods=['POST', 'GET'])
 def book():
-  bookings = []
+
   if request.method == 'POST':
     emailx = request.form.get('email')
     name = request.form.get('name')

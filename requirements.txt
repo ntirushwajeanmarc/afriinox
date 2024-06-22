@@ -1,2 +1,4 @@
 Flask
+python-dotenv
+flask_mail
 Gunicorn
